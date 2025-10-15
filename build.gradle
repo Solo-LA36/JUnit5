@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit для модульного тестирования
+    testImplementation(
+            "com.codeborne:selenide:7.2.0",
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            "org.slf4j:slf4j-simple:2.0.7"
+    )
+
+}
+
+
+test {
+    useJUnitPlatform()
+}
