@@ -3,21 +3,25 @@ plugins {
     id 'application'
 }
 
+group = 'guru.qa'
+version = '1.0-SNAPSHOT'
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // JUnit для модульного тестирования
-    testImplementation(
+        testImplementation(
             "com.codeborne:selenide:7.2.0",
-            "org.junit.jupiter:junit-jupiter:5.10.0",
+            "org.junit.jupiter:junit-jupiter:5.10.1",
             "org.slf4j:slf4j-simple:2.0.7"
     )
-
 }
-
 
 test {
     useJUnitPlatform()
+    systemProperties = [
+            'selenide.headless': System.getProperty('selenide.headless', 'false')
+    ]
+
 }
